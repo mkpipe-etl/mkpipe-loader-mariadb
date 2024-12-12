@@ -3,6 +3,9 @@ import shutil
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
 
+# Define the connector version
+connector_version = 'org.mariadb.jdbc:mariadb-java-client:3.5.1'
+
 # Define the paths
 ROOT_DIR = os.path.realpath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 ivy2_dir = os.path.join(ROOT_DIR, '.ivy2')
@@ -23,8 +26,6 @@ else:
 # Ensure the .ivy2 directory is recreated
 os.makedirs(ivy2_dir, exist_ok=True)
 
-# Define the connector version
-connector_version = 'org.mariadb.jdbc:mariadb-java-client:3.5.1'
 
 # Spark configuration
 conf = SparkConf()
