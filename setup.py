@@ -4,7 +4,7 @@ setup(
     name='mkpipe-loader-mariadb',
     version='0.1.0',
     license='Apache License 2.0',
-    packages=find_packages(exclude=['tests', 'scripts', 'deploy']),
+    packages=find_packages(exclude=['tests', 'scripts', 'deploy', 'install_jars.py']),
     install_requires=['mkpipe'],
     include_package_data=True,
     entry_points={
