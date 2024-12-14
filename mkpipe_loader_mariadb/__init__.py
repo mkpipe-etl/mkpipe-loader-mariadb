@@ -23,9 +23,9 @@ class MariadbLoader:
         self.password = quote_plus(str(self.connection_params['password']))
         self.database = self.connection_params['database']
 
-        self.driver_name = 'mysql'
+        self.driver_name = 'mariadb'
         self.driver_jdbc = 'org.mariadb.jdbc.Driver'
-        self.settings.driver_name = self.driver_name 
+        self.settings.driver_name = self.driver_name
         self.jdbc_url = f'jdbc:{self.driver_name}://{self.host}:{self.port}/{self.database}?user={self.username}&password={self.password}'
 
         config = load_config()
