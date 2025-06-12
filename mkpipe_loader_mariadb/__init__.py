@@ -1,7 +1,7 @@
 from mkpipe.functions_spark import BaseLoader
 
 
-class MariadbExtractor(BaseLoader):
+class MariadbLoader(BaseLoader):
     def __init__(self, config, settings):
         super().__init__(
             config,
