@@ -1,14 +1,13 @@
-from mkpipe.functions_spark import BaseLoader
+from mkpipe.spark import JdbcLoader
 
 
-class MariadbLoader(BaseLoader):
-    def __init__(self, config, settings):
-        super().__init__(
-            config,
-            settings,
-            driver_name='mariadb',
-            driver_jdbc='org.mariadb.jdbc.Driver',
-        )
+class MariadbLoader(JdbcLoader, variant='mariadb'):
+    driver_name = 'mariadb'
+    driver_jdbc = 'org.mariadb.jdbc.Driver'
 
     def build_jdbc_url(self):
-        return f'jdbc:{self.driver_name}://{self.host}:{self.port}/{self.database}?user={self.username}&password={self.password}&sessionVariables=sql_mode=ANSI_QUOTES'
+        return (
+            f'jdbc:{self.driver_name}://{self.host}:{self.port}/{self.database}'
+            f'?user={self.username}&password={self.password}'
+            f'&sessionVariables=sql_mode=ANSI_QUOTES'
+        )
