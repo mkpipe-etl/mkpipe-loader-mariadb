@@ -1,5 +1,7 @@
 from mkpipe.spark import JdbcLoader
 
+JAR_PACKAGES = ['org.mariadb.jdbc:mariadb-java-client:3.5.1']
+
 
 class MariadbLoader(JdbcLoader, variant='mariadb'):
     driver_name = 'mariadb'
