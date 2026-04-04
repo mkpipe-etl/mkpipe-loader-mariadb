@@ -6,6 +6,7 @@ JAR_PACKAGES = ['org.mariadb.jdbc:mariadb-java-client:3.5.1']
 class MariadbLoader(JdbcLoader, variant='mariadb'):
     driver_name = 'mariadb'
     driver_jdbc = 'org.mariadb.jdbc.Driver'
+    _dialect = 'mariadb'
 
     def build_jdbc_url(self):
         return (
